@@ -1,0 +1,100 @@
+{
+  "main": {
+    "id": "557f7544df9279ec",
+    "type": "split",
+    "children": [
+      {
+        "id": "c21e81b29ec56a37",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "linux/bash/commands.md",
+            "mode": "preview"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2294f75490c54e9d",
+    "type": "split",
+    "children": [
+      {
+        "id": "c79c2287d014a22a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c13b5a2579eec7a8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "a7ceb5fe695e9054",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "count",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c9e57d3ddb15a567",
+    "type": "split",
+    "children": [
+      {
+        "id": "fc2dd623972e81ac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c6ff2fb5aa6348ce",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "linux/bash/commands.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "lastOpenFiles": [
+    "linux/bash/commands.md",
+    "git/commands.md",
+    "git/log.md",
+    "linux/utils/rofi.md",
+    "linux/utils/Untitled.md",
+    "linux/bash/useful complex commands.md",
+    "markdown/tags.md",
+    "markdown/Untitled.md",
+    "linux/bash/shortkeys.md",
+    "linux/bash/Untitled.md"
+  ]
+}
