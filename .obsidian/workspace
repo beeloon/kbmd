@@ -10,8 +10,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "linux/bash/commands.md",
-            "mode": "preview"
+            "file": "git/frequent commands.md",
+            "mode": "source"
           }
         }
       }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/bash/commands.md",
+                "file": "git/frequent commands.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,15 +86,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
-    "linux/bash/commands.md",
+    "git/frequent commands.md",
+    "git/config.md",
+    "git/Untitled.md",
+    "Untitled.md",
     "git/commands.md",
+    "linux/bash/commands.md",
     "git/log.md",
     "linux/utils/rofi.md",
     "linux/utils/Untitled.md",
-    "linux/bash/useful complex commands.md",
-    "markdown/tags.md",
-    "markdown/Untitled.md",
-    "linux/bash/shortkeys.md",
-    "linux/bash/Untitled.md"
+    "linux/bash/useful complex commands.md"
   ]
 }
