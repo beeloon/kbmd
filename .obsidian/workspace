@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "c21e81b29ec56a37",
+        "id": "9b9fbb7198615e0d",
         "type": "leaf",
         "active": true,
         "state": {
@@ -88,13 +88,13 @@
   "lastOpenFiles": [
     "git/frequent commands.md",
     "git/config.md",
+    "git/[TABLE] git log --pretty specifiers.md",
+    "git/[TABLE] common options to git log.md",
+    "git/git log --pretty specifiers.md",
     "git/Untitled.md",
     "Untitled.md",
     "git/commands.md",
     "linux/bash/commands.md",
-    "git/log.md",
-    "linux/utils/rofi.md",
-    "linux/utils/Untitled.md",
-    "linux/bash/useful complex commands.md"
+    "git/log.md"
   ]
 }

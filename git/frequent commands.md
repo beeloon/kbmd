@@ -47,5 +47,39 @@ git rm README.md
 ```
 
 ## Moving Files
+```bash
+git mv file_from file_to
 
-# 39
+# will be equivalent to:
+mv README.md README
+git rm README.md
+git add README
+```
+
+## Viewing the Commit History
+```bash
+# view all history
+git log
+
+# will show history of last 3 commits
+git log -3
+
+# will show the difference introduced in each commit (full --patch)
+git log -p
+
+# will show abbreviated stats for each commit
+git log --stat
+
+# will show formatted output, values: [oneline, short, full, fuller]
+git log --pretty=oneline
+
+# will format according to specifier table (look at './git log --pretty specifiers.md')
+# output example: 9e41dc9 - Bohdan Bilyk, 3 weeks ago : initial commit
+git log --pretty=format:"%h - %an, %ar : %s"
+
+# will show formatted branch and merge history output like graph
+git log --pretty=format:"%h %s" --graph
+```
+## Limiting Log Output
+
+# 44
