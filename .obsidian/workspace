@@ -87,6 +87,7 @@
   },
   "lastOpenFiles": [
     "git/frequent commands.md",
+    "linux/bash/commands.md",
     "git/config.md",
     "git/[TABLE] git log --pretty specifiers.md",
     "git/[TABLE] common options to git log.md",
@@ -94,7 +95,6 @@
     "git/Untitled.md",
     "Untitled.md",
     "git/commands.md",
-    "linux/bash/commands.md",
     "git/log.md"
   ]
 }
