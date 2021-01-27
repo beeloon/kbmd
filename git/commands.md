@@ -142,4 +142,56 @@ git restore --staged <file>
 # Unmodifying a Modified File with git restore
 git restore <file>
 ```
-# 51
+
+## Showing Your Remotes
+```bash
+# show which remote servers were configured 
+git remote
+
+# show URLs that Git has stored for the shortname to be used
+# when reading and writing to that remote
+git remote -v
+```
+
+## Adding Remote Repositories
+```bash
+# add new remote git repo with remote add <shortname> <url>
+git remote add pb https://github.com/paulboone/ticgit
+```
+
+## Fetching and Pulling from Remotes
+```bash
+# fetch all source from remote repo
+git fetch 
+git fetch <remote>
+
+# fetch all source from remote repo and merge it
+git pull 
+git pull <remote>
+```
+
+## Pushing to Your Remotes
+```bash
+# push all changes in local repo to 
+# remote repo origin in the master branch
+git push origin master
+```
+
+## Inspecting a Remote
+```bash
+# show info about remote origin repo
+git remote show origin
+```
+
+## Renaming and Removing Remotes
+```bash
+# will rename remote origin repo to o
+git remote rename origin o
+
+# these commands will remove remote repo link from local repo
+git remote remove <remote>
+git remote remove origin
+git remote rm origin
+```
+
+# 62
