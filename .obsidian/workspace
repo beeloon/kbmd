@@ -10,8 +10,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "git/commands.md",
-            "mode": "source"
+            "file": "linux/crash.md",
+            "mode": "preview"
           }
         }
       }
@@ -53,7 +53,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "c9e57d3ddb15a567",
@@ -69,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "git/commands.md",
+                "file": "linux/crash.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,6 +87,8 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "linux/Untitled.md",
+    "Untitled.md",
     "git/commands.md",
     "git/frequent commands.md",
     "linux/bash/commands.md",
@@ -93,8 +96,6 @@
     "git/[TABLE] git log --pretty specifiers.md",
     "git/[TABLE] common options to git log.md",
     "git/git log --pretty specifiers.md",
-    "git/Untitled.md",
-    "Untitled.md",
-    "git/log.md"
+    "git/Untitled.md"
   ]
 }
