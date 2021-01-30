@@ -10,8 +10,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "linux/crash.md",
-            "mode": "preview"
+            "file": "git/commands.md",
+            "mode": "source"
           }
         }
       }
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/crash.md",
+                "file": "git/commands.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,15 +87,15 @@
     "collapsed": true
   },
   "lastOpenFiles": [
+    "git/commands.md",
+    "linux/crash.md",
     "linux/Untitled.md",
     "Untitled.md",
-    "git/commands.md",
     "git/frequent commands.md",
     "linux/bash/commands.md",
     "git/config.md",
     "git/[TABLE] git log --pretty specifiers.md",
     "git/[TABLE] common options to git log.md",
-    "git/git log --pretty specifiers.md",
-    "git/Untitled.md"
+    "git/git log --pretty specifiers.md"
   ]
 }

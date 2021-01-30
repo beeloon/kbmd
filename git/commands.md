@@ -1,11 +1,13 @@
 # Git basics
-## Clone repo from remote source
+
+## Getting a Git Repository
 ```bash
 git clone https://github.com/test.git
 git clone https://github.com/test.git TEST_REPO
 ```
 
-## Checking the status of files
+## Recording Changes to the Repository
+### Checking the status of files
 ```bash
 git status
 
@@ -13,7 +15,7 @@ git status
 git status -s 
 ```
 
-##  Tracking new files
+###  Tracking new files
 ```bash
 git add .
 git add README
@@ -28,7 +30,7 @@ git diff
 git diff --staged 
 ```
 
-## Committing Changes
+### Committing Changes
 ```bash
 # will open the default terminal for passing commit msg
 git commit
@@ -40,14 +42,14 @@ git commit -m "Story 182: fix benchmarks for speed"
 git commit -a -m 'Add new benchmarks'
 ```
 
-## Removing Files
+### Removing Files
 ```bash
 # remove file from staging
 # use git rm cause it will remove it from git tracked files
 git rm README.md
 ```
 
-## Moving Files
+### Moving Files
 ```bash
 git mv file_from file_to
 
@@ -56,6 +58,7 @@ mv README.md README
 git rm README.md
 git add README
 ```
+
 
 ## Viewing the Commit History
 ```bash
@@ -79,7 +82,7 @@ git log --pretty=format:"%h - %an, %ar : %s"
 git log --pretty=format:"%h %s" --graph
 ```
 
-## Limiting Log Output
+### Limiting Log Output
 ```bash
 # will show history of last 3 commits
 git log -3
@@ -122,19 +125,19 @@ git add forgotten_file
 git commit --amend
 ```
 
-## Unstaging a Staged File
+### Unstaging a Staged File
 ```bash
 # will unstage file 
 git reset HEAD <file>
 ```
 
-## Unmodifying a Modified File
+### Unmodifying a Modified File
 ```bash
 # will revert file back to what it looked like in last commit
 git checkout -- <file>
 ```
 
-## Undoing things with git restore (from version 2.25)
+### Undoing things with git restore (from version 2.25)
 ```bash
 # Unstaging a Staged File with git restore
 git restore --staged <file>
@@ -143,7 +146,8 @@ git restore --staged <file>
 git restore <file>
 ```
 
-## Showing Your Remotes
+## Working with remotes
+### Showing Your Remotes
 ```bash
 # show which remote servers were configured 
 git remote
@@ -153,13 +157,13 @@ git remote
 git remote -v
 ```
 
-## Adding Remote Repositories
+### Adding Remote Repositories
 ```bash
 # add new remote git repo with remote add <shortname> <url>
 git remote add pb https://github.com/paulboone/ticgit
 ```
 
-## Fetching and Pulling from Remotes
+### Fetching and Pulling from Remotes
 ```bash
 # fetch all source from remote repo
 git fetch 
@@ -170,20 +174,20 @@ git pull
 git pull <remote>
 ```
 
-## Pushing to Your Remotes
+### Pushing to Your Remotes
 ```bash
 # push all changes in local repo to 
 # remote repo origin in the master branch
 git push origin master
 ```
 
-## Inspecting a Remote
+### Inspecting a Remote
 ```bash
 # show info about remote origin repo
 git remote show origin
 ```
 
-## Renaming and Removing Remotes
+### Renaming and Removing Remotes
 ```bash
 # will rename remote origin repo to o
 git remote rename origin o
@@ -194,4 +198,95 @@ git remote remove origin
 git remote rm origin
 ```
 
-# 62
+## Tagging
+```bash
+# listing the existing tags
+git tag
+
+# list tags by pattern, if you want just list all yor[-l == --list]
+git tag -l "v1.8.5*"
+```
+
+### Creating tags
+#### Annotated Tags
+```bash
+# create annotated tag, where 
+# -m specifies a message
+# -a for creating annotated tag
+git tag -a v1.4 -m 'my version 1.4'
+
+# to see info about your tag enter
+git show v1.4
+```
+
+#### Lightweight Tags
+```bash
+# to create light tag no need to pass another options
+git tag v1.4-lw
+```
+
+### Tagging Later
+```bash
+# if you forget to add the tag to specific commit
+# in the example 9fceb02 is the checksum of commit 
+git tag -a v1.2 9fceb02
+```
+
+### Sharing tags
+```bash
+# certain tag
+git push origin v1.5
+
+# all your tags
+git push origin --tags
+
+# push all your annotated tags
+git push origin --follow-tags
+```
+
+### Deleting Tags
+```bash
+# delete on local machine
+git tag -d v1.4-lw
+
+# for remote delete use one of the following command 
+git push origin :refs/tags/<tagname>
+git push origin --delete <tagname>
+```
+
+### Checking out Tags
+```bash
+git checkout v2.0.0
+```
+
+## Git Aliases
+
+```bash
+# to create new alias, you need add field to alias 
+# object in global config file with command you need to be alias 
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+
+
+# create more complex command
+git config --global alias.unstage 'reset HEAD --'
+
+# show last commit 
+git config --global alias.last 'log -1 HEAD'
+```
+
+# Git basics
+## Creating a New Branch
+```bash
+# if you want to create branch or check which 
+# branch you're in use git branch command
+git branch <branchname>
+```
+
+## Switching Branches
+```bash
+git checkout <branchname>
+```
+# 75
