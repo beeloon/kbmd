@@ -277,16 +277,42 @@ git config --global alias.unstage 'reset HEAD --'
 git config --global alias.last 'log -1 HEAD'
 ```
 
-# Git basics
-## Creating a New Branch
+# Git branching
+## Branches in nutshell
+### Creating a New Branch
 ```bash
 # if you want to create branch or check which 
 # branch you're in use git branch command
 git branch <branchname>
 ```
 
-## Switching Branches
+### Switching Branches
 ```bash
+# to switch between branches use following commands\
 git checkout <branchname>
+
+# command will create and instantly switch to another branch
+git checkout -b <branchname>
+
+# from version 2.23 you can use switch command instead of checkout
+git switch <branchname>
+
+# use switch to instantly create and switch with branches
+# -c flag stands for create, it full version is --create 
+git switch -c <branchname>
+
+# there commands will return to your previosly checked out branch
+git checkout - 
+git switch - 
+
+
+# to see how history of your commits looks like with braches
+# you can log commits with graph view like this
+git log --oneline --decorate --graph --all
 ```
-# 75
+
+## Basic branching and merging
+
+
+
+# 80 
