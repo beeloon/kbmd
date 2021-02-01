@@ -311,8 +311,25 @@ git switch -
 git log --oneline --decorate --graph --all
 ```
 
-## Basic branching and merging
+### Deleting Branches
+```bash
+# use following command to delete branch
+git branch -d <branchname>
 
+# for removing remote branch use
+git push origin --delete <branchname>
+```
 
+### Basic Merging and Conflicts
+```bash
+# basic merge command
+git merge <branchname> 
 
-# 80 
+# use following command if you want use a graphical tool
+# to resolve merging conflicts
+git mergetool
+```
+
+## Branch Management
+
+# 86

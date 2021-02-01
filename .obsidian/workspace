@@ -53,8 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "c9e57d3ddb15a567",
@@ -88,12 +87,12 @@
   },
   "lastOpenFiles": [
     "git/commands.md",
+    "git/config.md",
     "linux/crash.md",
     "linux/Untitled.md",
     "Untitled.md",
     "git/frequent commands.md",
     "linux/bash/commands.md",
-    "git/config.md",
     "git/[TABLE] git log --pretty specifiers.md",
     "git/[TABLE] common options to git log.md",
     "git/git log --pretty specifiers.md"
