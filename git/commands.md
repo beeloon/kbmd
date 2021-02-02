@@ -281,8 +281,7 @@ git config --global alias.last 'log -1 HEAD'
 ## Branches in nutshell
 ### Creating a New Branch
 ```bash
-# if you want to create branch or check which 
-# branch you're in use git branch command
+# if you want to create branch use git branch command 
 git branch <branchname>
 ```
 
@@ -331,5 +330,53 @@ git mergetool
 ```
 
 ## Branch Management
+```bash
+# list all of your branches
+# * indecates your current branch
+git branch
 
-# 86
+# if you want to see all local and remote branches use --all flag
+git branch --all
+
+
+# if you want to see the last commit on each branch use -v flag
+git branch -v
+
+# following command indicate branches that you have
+# or not have merged in the branch you are currently in
+git branch --merge
+git branch --no-merge
+# branch name is oprional, but you can always provide additional argument
+git branch --merge <branchname>
+
+# you can't delete not merged branch with -d flag
+# but if you're sure about deletean branch and lose your work use -D
+git branch -D <branchname>
+```
+
+### Changing a branch name
+```bash
+# locally change branch name
+git branch --move <bad-branch-name> <corrected-branch-name>
+
+# change name for remote branch
+git push --set-upstream origin <corrected-branch-name>
+git push origin --delete <bad-branch-name>
+```
+
+### Changing the master branch name
+```bash
+# Changing the name of a branch like master/main/mainline/default will break the
+# integrations, services, helper utilities and build/release scripts that your repository
+# uses. Before you do this, make sure you consult with your collaborators. Also make
+# sure you do a thorough search through your repo and update any references to the
+# old branch name in your code or scripts.
+git branch --move master <branchname>
+
+git push --set-upstream origin main
+
+git push origin --delete master
+```
+
+## Branching Workflows
+# 89
