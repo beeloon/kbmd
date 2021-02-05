@@ -378,5 +378,21 @@ git push --set-upstream origin main
 git push origin --delete master
 ```
 
-## Branching Workflows
-# 89
+## Remote branches
+```bash
+# to see a full list of remote references use followin commands
+git ls-remote <remote>
+git remote show <remote>
+```
+
+### Origin is not special
+```bash
+# Just like the branch name “master” does not have any special meaning in Git,
+# neither does “origin”. While “master” is the default name for a starting branch
+# when you run git init which is the only reason it’s widely used, “origin” is the
+# default name for a remote when you run git clone. If you run git clone -o booyah
+# instead, then you will have booyah/master as your default remote branch
+git clone
+git clone -o booyah
+```
+# 98
