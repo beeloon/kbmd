@@ -29,3 +29,8 @@ git config --global core.editor code
 ```bash
 git config --global init.defaultBranch main
 ```
+
+##### keep in memory user credentials and don't type login/pass every time when you use HTTPS URL pushing
+```bash
+git config --global credential.helper cache
+```

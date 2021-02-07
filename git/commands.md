@@ -362,6 +362,9 @@ git branch --move <bad-branch-name> <corrected-branch-name>
 # change name for remote branch
 git push --set-upstream origin <corrected-branch-name>
 git push origin --delete <bad-branch-name>
+# --set-upstream sets the default remote branch for the current local branch
+# when set-upstream added, user don't nee specify remote branch every time
+# and push changes only with git push command
 ```
 
 ### Changing the master branch name
@@ -395,4 +398,43 @@ git remote show <remote>
 git clone
 git clone -o booyah
 ```
-# 98
+
+### Pushing
+```bash
+# Your local branches aren’t automatically synchronized to the remotes 
+# you write to — you have to explicitly push the branches you want to share
+# for example if you have local branch serverfix, and want to add/update it 
+# to remote branches, use command like git push <remote> <branch>
+git push origin serverfix
+```
+
+### Tracking branches
+```bash
+# [Important] When you do a fetch that brings down new remote-tracking branches,
+# you don’t automatically have local, editable copies of them. In other words, in this case, you don’t
+# have a new serverfix branch — you have only an origin/serverfix pointer that you can’t modify.
+git fetch origin
+
+# To merge this work into your current working branch, you can run git merge origin/serverfix. If
+# you want your own serverfix branch that you can work on, you can base it off your remote-
+# tracking branch:
+git checkout -b serverfix origin/serverfix
+
+# Or do the same thing but with git --track flag
+git checkout --track origin/serverfix
+
+# If you already have a local branch and want to set it to a remote branch you just pulled down, or
+# want to change the upstream branch you’re tracking, you can use the -u or --set-upstream-to
+# option to git branch to explicitly set it at any time
+git branch -u origin/serverfix
+
+# To see what tracking branches you have set up, you can use the -vv option to git branch
+git branch -vv
+
+# If you want totally up to date ahead and behind numbers, you’ll need to fetch from
+# all your remotes right before running this. You could do that like this:
+git fetch --all; git branch -vv
+```
+
+
+# 101
