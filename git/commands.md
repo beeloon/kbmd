@@ -436,5 +436,18 @@ git branch -vv
 git fetch --all; git branch -vv
 ```
 
+### Deleting Remote Branches
+```bash
+git push origin --delete <branchname>
+```
 
-# 101
+## Rebasing
+```bash
+# With the rebase command, you can take all the changes that were 
+# committed on one branch and replay them on a different branch.
+# for example, you would check out the <branch>, and then rebase it onto the master:
+git checkout <branch>
+git rebase master
+```
+
+# Git on the Server
