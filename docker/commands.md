@@ -43,4 +43,15 @@ docker stop <container_name>
 docker rm <container_name>
 ```
 
+### Manage Docker as a non-root user (without sudo)
+```bash
+# 1. Create the docker group.
+sudo groupadd docker
+
+# 2. Add your user to the docker group.
+sudo usermod -aG docker $USER
+
+# 3. Restart system (or Log out and Log back)
+```
+
 ### DOCKERFILE
