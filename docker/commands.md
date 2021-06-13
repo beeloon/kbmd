@@ -5,6 +5,11 @@
 docker --version
 ```
 
+### Docker startup (fedora)
+```bash
+sudo systemctl start docker 
+```
+
 ### Build new docker image
 ```bash
 # Build new test image with docker file 
