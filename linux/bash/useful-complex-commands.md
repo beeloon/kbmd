@@ -28,3 +28,6 @@ find . -maxdepth 1 -type f | wc -l
 ```
 grep ie /usr/share/dict/words | less
 ```
+
+#### Check if port is used by some app
+netstat -nlp | grep 8080
