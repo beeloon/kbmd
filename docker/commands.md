@@ -46,6 +46,9 @@ docker stop <container_name>
 
 # remove container from container list
 docker rm <container_name>
+
+# exec used when you need to run some <command> in your running <container_name>
+docker exec -it <container_name> <command>  
 ```
 
 ### Manage Docker as a non-root user (without sudo)
@@ -58,5 +61,3 @@ sudo usermod -aG docker $USER
 
 # 3. Restart system (or Log out and Log back)
 ```
-
-### DOCKERFILE
