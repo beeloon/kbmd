@@ -113,6 +113,9 @@ git log -- path/to/file
 # Here's limiting log example
 git log --pretty="%h - %s" --author='Junio C Hamano' --since="2008-10-01" \
 --before="2008-11-01" --no-merges -- t/
+
+# Show 5 records in oneline style with author pwebb and that were commited before Sat Aug 30
+git log --oneline -5 --author pwebb --before "Sat Aug 30 2014"
 ```
 
 ## Undoing Things
@@ -128,7 +131,13 @@ git commit --amend
 ### Unstaging a Staged File
 ```bash
 # will unstage file 
-git reset HEAD <file>
+# git reset works great for local branches
+git reset HEAD^ <file>
+
+# in order to reverse changes locally and remotely we can use git revert
+# for that case we will recieve additional commit in the history
+# and then can push it to remote branch, saving the overall history
+git revert HEAD
 ```
 
 ### Unmodifying a Modified File
@@ -310,6 +319,32 @@ git switch -
 git log --oneline --decorate --graph --all
 ```
 
+### Relative refs (switching git objects)
+```bash
+# When you run git branch <branch>, how does Git know the SHA-1 of the last commit? The answer is the HEAD file.
+# Usually the HEAD file is a symbolic reference to the branch you’re currently on. By symbolic reference, means that unlike a normal reference, it contains a pointer to another reference.
+# However in some rare cases the HEAD file may contain the SHA-1 value of a git object. This happens when you checkout a tag, commit, or remote branch, which puts your repository in "detached HEAD" state.
+
+# Moving upwards one commit at a time with ^
+# main^ is equivalent to "the first parent of main"
+# main^^ is the grandparent (second-generation ancestor) of main
+git checkout main^
+
+# We can do the same thing with HEAD link
+git checkout HEAD^
+
+# Move HEAD link back for 4 commits
+git checkout HEAD~4
+
+# Moving upwards a number of times with ~<num>
+git checkout main ~<num>
+
+# Branch forcing
+# You can directly reassign a branch to a commit with the -f option.
+# So here we reassign our main branch back to 3 commits in the commit graph
+git branch -f main HEAD~3
+```
+
 ### Deleting Branches
 ```bash
 # use following command to delete branch
@@ -322,7 +357,11 @@ git push origin --delete <branchname>
 ### Basic Merging and Conflicts
 ```bash
 # basic merge command
+# Flow: you have two branches main and hotfix
+# and want to merge changes from hotfix to main
+# Type command git megre hotfix, when you're currenty location is main branch
 git merge <branchname> 
+
 
 # use following command if you want use a graphical tool
 # to resolve merging conflicts
@@ -446,8 +485,29 @@ git push origin --delete <branchname>
 # With the rebase command, you can take all the changes that were 
 # committed on one branch and replay them on a different branch.
 # for example, you would check out the <branch>, and then rebase it onto the master:
-git checkout <branch>
+# Flow: you have two branches main and hotfix
+# and want to rebase changes from hotfix to main
+# Type command git rebase main, when you're currenty location is hotfix branch git checkout <branch>
 git rebase master
+```
+
+## Cherry pick
+```bash
+# cherry-pick straightforward way to copy a series of commits to your current location (HEAD).
+
+# You need to switch to the branch you want to cherry pick commits
+# For example git switch main 
+git cherry-pick <commit-hash> 
+
+# or several commits
+git cherry-pick <commit-hash1> <commit-hash2> <...>
+
+# if you want to change commit message for commit that you want to copy, use command like
+git cherry-pick <commit-hash> -edit
+
+# if you dont want to add cherry picked commit to commit history you can add --no-commit option
+# with this option all changes that was in cherry picked commit will be added to your working directory 
+git cherry-pick <commit-hash> --no-commit
 ```
 
 # Git on the Server
