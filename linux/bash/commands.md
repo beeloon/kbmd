@@ -197,3 +197,23 @@ passwd username
 
 #### wc
 print newline, word, and byte counts for each file
+
+#### kill (killall)
+The kill command sends a signal to specified processes or process groups, causing them to act according to the signal. When the signal is not specified, it defaults to -15 (-TERM).
+The most commonly used signals are:
+
+1 (HUP) - Reload a process.
+9 (KILL) - Kill a process.
+15 (TERM) - Gracefully stop a process.
+
+```bash
+# will gracefully stop process 
+kill <process pid>
+
+# will immediately kill process
+kill -9 <process pid>
+
+# will stop/kill all process with <name>
+killall <name>
+killall -9 node
+```
