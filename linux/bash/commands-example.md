@@ -30,3 +30,8 @@ netstat -nlp | grep 8080
 ```bash
 ps -A
 ```
+
+### Kill process on port 5432 and run docker container (horai)
+```bash
+sudo kill $(sudo lsof -t -i:5432) && docker run --rm --name horai_coupon_db -p 5432:5432 -e POSTGRES_PASSWORD=horai -d postgres 2>/dev/null
+```
