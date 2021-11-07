@@ -1,33 +1,25 @@
-#### shell globbing (wildcards)
-. - current directory
-\* - match any number or arbitrary characters
-? - match one arbitrary character
-
-#### man
+## man
 an interface to the system reference manuals
 ```bash
 man mkdir
 ```
 
-#### cat
+## cat
 concatenate files and print on the standard output.
 
-to see an input stream, enter cat (with no filenames) and press enter. Press ctrl + D on an empty line to terminate cat and return to the shell prompt.
 ```bash
+# to see an input stream, enter cat (with no filenames) and press enter. 
+# Press ctrl + D on an empty line to terminate cat and return to the shell prompt.
 cat
-```
 
-display the content of the /etc/passwd
-```bash
+# display the content of the /etc/passwd
 cat /etc/passwd
-```
 
-output the contents of one or more files
-```bash
+# output the contents of one or more files
 cat file1 file2
 ```
 
-#### ls
+## ls
 list directory contents
 
 show all files in long hunamreadable format:
@@ -35,170 +27,201 @@ show all files in long hunamreadable format:
 - all files -a
 - humanreadable -h
 ```bash
-ls -lah
+ls --all --human-readable -l [FILE] 
+
+# short form
+ls -lah [FILE]
 ```
 
-#### cp
-copy files and directories
+## clear
+clear the terminal screen
 ```bash
-cp file1 file2
+clear
+
+# clear all previous terminal output
+clear & clear
 ```
 
-to copy a number of files to a directory (folder) named dir , try this instead:
+## exit
+cause normal process termination
+```bash
+exit
 ```
+
+## cp
+```bash
+# copy files and directories
+cp file1 file2
+
+# to copy a number of files to a directory (folder) named dir , try this instead:
 cp file1 ... fileN dir
 ```
 
-#### mv
+## mv
 move(rename) files 
 ```bash
 mv file1 file2
-```
 
-move a number of files to a different directory
-```bash
+# move a number of files to a different directory
 mv file1 ... fileN dir
 ```
 
-#### touch
+## touch
 create file / change file timestamps
 ```bash
 touch file
 ```
 
-#### rm
-remove files 
+## rm
+remove files or directories
 ```bash
 rm file
-```
 
-remove directories
-- recursive remove -r
-- force remove -f
-```bash
+# remove directories
+#   - recursive remove -r
+#   - force remove -f 
 rm -rf dir
 ```
 
-#### echo
+## echo
 display a line of text
-
 ```bash
 echo Hello world
 ```
 
-#### cd
+## cd
 change directory
 ```bash
 cd dir
-```
 
-move to /home directory
-```bash
+# move to /home directory
 cd 
-```
 
-move to previos directory
-```bash
+# move one level below
 cd ..
+
+# move to previos directory
+cd -
 ```
 
-#### mkdir
+## mkdir
 create new directory
 ```bash
 mkdir dir
 ```
 
-#### rmdir
+## rmdir
 delete directory
 ```bash
 rmdir
 ```
 
-#### grep
+## grep
 pringt lines that matches patterns
 ```bash
+# two most important options:
+#   - case-insensitive matches [-i]
+#   - all lines that don't match pattern [-v]
+
+# two important things to remember about RegExp:
+#   - .\* matches any number of characters (like the * in wildcards).
+#   - . matches one arbitrary character.
 grep pattern file
-```
 
-print the lines in /etc/passwd file that contains word text
-```bash
+# print the lines in /etc/passwd file that contains word "root"
 grep root /etc/passwd
-```
 
-check every file in /etc directory
-```bash
+# check every file in /etc directory for word "root"
 grep root /etc/*
+
+# find word root in Desktop dir and recursively in all inner dirs
+grep -r root Desktop
+
+# list all processes and then find every line with word root and count how many lines found 
+ps aux | grep -c root
 ```
 
-two most important options:
-- case-insensitive matches [-i]
-- all lines that don't match pattern [-v]
-
-two important things to remember about RegExp:
-- .\* matches any number of characters (like the * in wildcards).
-- . matches one arbitrary character.
-
-#### less
+## less
 output file when command’s output is long and scrolls off the top of the screen
 ```bash
 less /usr/share/dict/words
 ```
 
-#### pwd
+## pwd
 print name of current/working directory
 ```bash
 pwd
 ```
 
-#### diff
+## diff
 compare files line by line
 ```bash
 diff file1 file2
 ```
 
-#### file
+## file
 determine file type
 ```bash
 file test.txt
 ```
 
-#### find and locate
+## find and locate
 search for files in a directory hierarchy
-
-find "Desktop" in $HOME directory and list file in ls -dils format on standard output
 ```bash
+# find "Desktop" in $HOME directory and list file in ls -dils format on standard output
 find ~/ -name "Desktop" -ls
+
+# find test.txt in dir /docs 
+find /docs -name test.txt
+
+# find all txt files in root dir
+find ~/ -name "*.txt"
 ```
 
-#### head and tail
+## head and tail
 output the first/last part of files
-
-output first 5/last 5 lines in /usr/share/dict/words file 
 ```bash
+# output first 5/last 5 lines in /usr/share/dict/words file 
 head -2 /usr/share/dict/words
 tail -2 /usr/share/dict/words
 ```
 
-#### sort
+## sort
 sort lines of text files
 ```bash
+# two useful options:
+#   - sort in numberical order, if file's lines starts with numbers [-n]
+#   - reverse the order of the sort [-r] 
 sort file
 ```
 
-two useful options:
-- sort in numberical order, if file's lines starts with numbers [-n]
-- reverse the order of the sort [-r] 
-
-#### passwd
+## passwd
 change user password
 ```bash
 passwd username
 ```
 
-#### wc
+## wc
 print newline, word, and byte counts for each file
 
-#### kill (killall)
+## ps
+report a snapshot of the current processes.
+```bash
+ps
+
+# list all running processes
+ps -e
+
+# shows the names of all the running processes, their process identification numbers (PIDs), 
+# the PIDs of their parents (PPIDs), when they began (STIME), what terminal, if any, they're attached to (TTY), 
+# how much CPU time they've racked up (TIME), and their full path names
+ps -ef
+
+# the same as ps
+ps aux
+```
+
+## kill (killall)
 The kill command sends a signal to specified processes or process groups, causing them to act according to the signal. When the signal is not specified, it defaults to -15 (-TERM).
 The most commonly used signals are:
 
@@ -216,4 +239,145 @@ kill -9 <process pid>
 # will stop/kill all process with <name>
 killall <name>
 killall -9 node
+```
+
+## chmod
+change file mode bits
+
+chmod can be used with [numeric permissions](https://www.cyberciti.biz/faq/unix-linux-bsd-chmod-numeric-permissions-notation-command/) mode
+
+```bash
+# make file executable
+chmod +x sample.txt
+
+# Read by owner only 
+chmod 400 sample.txt 
+
+# Read by group only
+chmod 040 sample.txt 
+
+# Read by anyone
+chmod 004 sample.txt 
+
+# Write by owner only
+chmod 200 sample.txt 
+
+# Write by group only
+chmod 020 sample.txt 
+
+# Write by anyone
+chmod 002 sample.txt 
+
+# Execute by owner only
+chmod 100 sample.txt 
+
+# Execute by group only
+chmod 010 sample.txt 
+
+# Execute by anyone
+chmod 001 sample.txt 
+
+# Allow read permission to owner and group and anyone.
+chmod 444 sample.txt
+
+# Allow everyone to read, write, and execute file.
+chmod 777 sample.txt
+```
+
+## history
+The history command show a list of used commands with their id
+
+```bash
+history
+!2
+
+# if you want to run command from the end of the list
+# you can also use negative numbers
+!-5 
+
+# we can use command symbols to run the last command
+# that match these symbols
+!find
+!git
+
+# If you want to check which command will be used
+# before runneng it, you  can specify :p option
+# it stands for 'print', and show the whole command text
+!git:p
+
+# If you want to use arguments of certain command
+# for another command you can use this with !*
+# eg. will replace !5157* to arguments that was used
+# with command which id 5157 in history (eg. kill -9 node)
+kill !5157*
+# the same example, without command history id
+# !* will return arguments of the last command you have used
+killall -9 node
+kill !*
+# or check how command will look with arguments from
+# another command
+kill !*:p
+# you can also specify certain argument by it index
+# eg. will return => cat file2.txt
+cp file1.txt file2.txt
+cat !:2
+# or you can specify range or arguments
+# eg. will return 2,3,4 arguments => -f -h -F
+ls -a -f -h -F
+!:2-4
+
+# to pick last argument of some command use !$
+# for first argument use !^
+# eg. return last argument of ls that was matched to last ls command in history
+!ls:$
+
+# eg. return all arguments from 2 to the last one
+ls !ls:2-$
+```
+
+## && (AND)
+Run a sequence of commands  
+```bash
+# will got to api/coupon dir and then run start script
+cd api/coupon && npm start
+
+# if one of the command in sequence will throw an error
+# next commands in sequence will not run
+# eg. throw an error when making a directory and won't run cd command
+mkdir /root/mydir && cd /root/mydir
+```
+
+## || (OR)
+Run the first command that will not throw an error 
+```bash
+# will not create new dir, but will try to go to /root/mydir dir 
+mkdir /root/mydir || cd /root/mydir
+```
+
+## unzip 
+list, test and extract compressed files in a ZIP archive
+```bash
+# will unzip ARCHIVE.zip 
+unzip [ARCHIVE.zip]
+```
+
+## gzip
+gzip, gunzip, zcat - compress or expand files
+```bash
+# will unzip ARCHIVE.zip and then delete ARCHIVE.zip
+gzip [ARCHIVE.zip]
+```
+
+## zip
+package and compress (archive) files
+```bash
+# archive n file to ARCHIZE.zip
+zip [ARCHIVE.zip] file1, file2, ..., fileN
+```
+
+## gzip
+gzip, gunzip, zcat - compress or expand files
+```bash
+# will archive [FILE] to FILE.gz archive and delete original [FILE]
+gzip [FILE]
 ```
