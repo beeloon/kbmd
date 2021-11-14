@@ -4,3 +4,7 @@
  - linux
  - git 
  - markdown
+ - docker
+ - programming
+ - databases
+ - english
