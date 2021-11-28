@@ -49,12 +49,20 @@ exit
 ```
 
 ## cp
+OpenSSH secure file copy
+```bash
+# copy from server $path1 to client @path2
+scp -P {port} {user}@{host}: $path1 $path2
+
+# copy from client $path1 to server @path2
+scp -P {port} $path1 {user}@{host}: $path2
+```
+
+## scp
 ```bash
 # copy files and directories
 cp file1 file2
 
-# to copy a number of files to a directory (folder) named dir , try this instead:
-cp file1 ... fileN dir
 ```
 
 ## mv
@@ -139,6 +147,7 @@ grep -r root Desktop
 
 # list all processes and then find every line with word root and count how many lines found 
 ps aux | grep -c root
+
 ```
 
 ## less
@@ -156,7 +165,9 @@ pwd
 ## diff
 compare files line by line
 ```bash
-diff file1 file2
+# r - recursively
+# q - don't show the difference, and only define if they're different or not
+diff [-q|-r] path1 path2
 ```
 
 ## file
@@ -203,6 +214,16 @@ passwd username
 
 ## wc
 print newline, word, and byte counts for each file
+```bash
+# count amount of lines
+wc -l file.txt
+
+# count amount of words
+wc -w file.txt
+
+# count amount of characters
+wc -c file.txt
+```
 
 ## ps
 report a snapshot of the current processes.
@@ -380,4 +401,19 @@ gzip, gunzip, zcat - compress or expand files
 ```bash
 # will archive [FILE] to FILE.gz archive and delete original [FILE]
 gzip [FILE]
+```
+
+## du
+estimate file space usage
+```bash
+# -h - human readable form
+# -d - print the total for a directory (or file, with --all) only if it is N  or  fewer  levels  below  the  command  line  argument; --max-depth=0 is the same as --summarize
+du [-d|-h] path
+```
+
+## df
+report file system disk space usage
+```bash
+# -h - human readable form
+df [-h]
 ```
