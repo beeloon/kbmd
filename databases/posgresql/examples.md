@@ -26,3 +26,14 @@ FROM
     LEFT JOIN "Coupon" c ON p."couponId" = c.id
     WHERE pc."usedAt" IS NOT NULL
 ```
+
+```sql
+select 
+    "paymentId", 
+    "userId", 
+    "createdAt" AT TIME ZONE 'UTC' AT TIME ZONE 'JST' AS created_at_jst, 
+    "promotionCodeId" 
+from "Purchase" 
+where "createdAt" >= '2021-12-22' and "createdAt" <= '2021-12-23' 
+order by "createdAt"; 
+```
