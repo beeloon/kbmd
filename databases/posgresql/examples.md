@@ -37,3 +37,30 @@ from "Purchase"
 where "createdAt" >= '2021-12-22' and "createdAt" <= '2021-12-23' 
 order by "createdAt"; 
 ```
+
+```sql
+INSERT INTO
+    "EventGroup" (
+        "eventGroupId",
+        "name",
+        "description",
+        "imageUrl",
+        "createdAt",
+        "updatedAt",
+        "isActive"
+    )
+VALUES
+    (
+        'dfbcd334-4df2-4605-a506-0b650f5f179d',
+        '豊岡演劇祭2022チケット',
+        '本サ イトでは、「豊岡演劇祭2022」のチケットを購入することができます。\n
+チケットの購入は予約時間の30分前まで可能です。\n
+当日午前8時以降のキャンセルはできません。キャンセル方法についてはこちらをご覧ください。\n
+豊岡市美術館では、新型コロナウイルスの感染拡大を防ぎ、皆さまに安心して劇場を楽しんでいただけるよう、さま ざまな取り組みを行っています。詳しくはこちらをご覧ください。\n
+皆様のご理解とご協力をお願いいたします。',
+        'https://blog-imgs-150-origin.fc2.com/t/a/j/tajimalibe/safe_image.jpg',
+        NOW(),
+        NOW(),
+        TRUE
+    );
+```
