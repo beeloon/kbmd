@@ -1,4 +1,9 @@
+## [Course LINK](https://www.youtube.com/watch?v=ztHopE5Wnpc)
+
+
 ## Relation
+
+Relation now comes from world relationship. It comes from mathematical term **relation** (conection of sets)
 
 - Entity: what we store data about (Person)
 - Attribute: what we store (usename, email, password, address, phone etc.)
@@ -132,3 +137,238 @@ but then you decide to update phone number
 **congrats, now we have data integrity issue, because we have new phone number that person use and old one which he don't use**
 
 ## Data integrity
+
+Data integrety is just having correct data in your database
+
+Data integrity solving such kind of problems:
+- repeatina values
+- incorrect values
+- broken relationship
+
+Three main type of data integriry:
+- Entity integrity
+- Referential integrity
+- Domain integrity
+
+**Entity integrity** - when we mention this type, we basically mean **unique entities**. For entity uniqueness we use **unique id**
+
+**Ex:**
+If we have two users two users in DB that have the same info, but actually they're two different people we need to set uniqueness for such table so every user in DB have unique id
+
+FROM:
+| name   | phone   |
+| ------ | ------- |
+| Bohdan | 3809915 |
+| Bohdan | 3809915 |
+
+TO:
+| id  | name   | phone   |
+| --- | ------ | ------- |
+| 1   | Bohdan | 3809915 |
+| 2   | Bohdan | 3809915 |
+
+**Referential integrity** - is when we reference an id of one table to another table.
+
+**Ex:**
+We have users and comments table, and defining a user_id in comments table we specify referantial integtity between these two tables. If in some case user who wrote the comment will be deleted and comments still exists, then we will have referential integrity problems, because we cannot have comments independant from user
+
+**users**
+| user_id | name   | phone   |
+| ------- | ------ | ------- |
+| 777     | Bohdan | 3809915 |
+| 12      | Ann    | 123     |
+
+**comments**
+| comment_id | user_id | text         |
+| ---------- | ------- | ------------ |
+| 1          | 12      | awesome      |
+| 2          | 777     | test comment |
+
+
+**Domain integrity** - is basically acceptale values for a column.
+
+**Ex:**
+For example we have phone numbers and we know that all phone numbers should be numbers and have a country prefix, like for Ukraine (+38). And then user decided to add text like "Some jubbrish" to the phone table, with data integrity you'll not have such problems,because it's not in number format and have not prefix
+
+| phone         | id  | note            |
+| ------------- | --- | --------------- |
+| 380777777777  | 1   | ok              |
+| 380666676666  | 2   | ok              |
+| Some jubbrish | 3   | what the heck?! |
+
+## Data Types
+
+We can put limits on data type (eg. `char(20)`)
+
+
+## Database Terms
+
+Data - anything that we store in DB
+Database - what we store out data in
+Relational DB - it stire things in tables
+DBMS - how we control and manage Database
+RDBMS - how we control and manage Database between a values and tables
+Null - when someone did not integrated value withing a table column
+DB Anomalies - errors withing data integrity (something goes away from what we expect or from the normal)
+DB Integrity - protect from DB anomalies
+
+Entity - anything we store data user about
+Attributes - things that we store about the entity
+Relation - put it simply it's just a table and connection between them (in math connection between two data sets)
+Tuple - all of the attributes about specific entity (row)
+Table (File) - physical representation of relation
+Row (Record or Entry) - specific individual entry within a table
+Column(Field) - specific attribute of entity
+Value - information that we put in a specific column
+DB Design - the process of designing your table to remove anomalies and have data integrity
+Schema - draw of desing structure 
+Normalization - bunch of steps that we need to follow for better database design
+Naming conventions - rules that help make things consistent
+Keys - make something unique withing a table
+
+SQL - domain specific programming lang designed for managing data in RDBMS
+DDL (part of SQL) - definethe structure of database
+DML (part of SQL) - insert, update, delete, search values in DB
+SQL keywords - reserved words that (not supposed to use for your user defined data)
+
+## Atomic values
+
+Atomic value - means that value stores one thing
+
+**Ex**: we have attriute `name`, but in common perspective this column can be generated like 'Caleb Daniel Curry', it's not necessary atomic because we store three names ('Caleb', 'Daniel', 'Curry') in one column.
+If we wanna to make this field atomic, the best wasy to do it by DB design is to split this by first_name, middle_name, last_name
+
+FROM:
+| user_id | name               | phone   |
+| ------- | ------------------ | ------- |
+| 1       | Caleb Daniel Curry | 3809915 |
+
+TO:
+| user_id | first_name | middle_name | last_name | phone   |
+| ------- | ---------- | ----------- | --------- | ------- |
+| 1       | Caleb      | Daniel      | Curry     | 3809915 |
+
+Also when we talk about atomic values, it means that we not want to store multiple thing withing a column like
+
+| favourite_movies                | id  |
+| ------------------------------- | --- |
+| Pirates of Caribes, World War Z | 1   |
+
+Split it properly
+| favourite_movie    | id  |
+| ------------------ | --- |
+| Pirates of Caribes | 1   |
+| World War Z        | 2   |
+
+## Relationship
+
+Relationship in DB perspective it's a connection between two or more entities
+
+Types of relationship:
+- One to one
+- One to many
+- Many to many
+
+### One to one (1:1)
+
+One Entity has a reletion with only one another Entity
+
+**Ex:** Social securitry numbers. Person can have only one ssn, and a ssn can have only one person
+
+person
+| name    | person_id |
+| ------- | --------- |
+| Stephen | 1         |
+| Hugh    | 2         |
+
+ssn
+| number    | ssn_id | person_id |
+| --------- | ------ | --------- |
+| 492345934 | 1      | 2         |
+| 534586796 | 2      | 1         |
+
+#### Designing one to one
+
+**Cardholder and Card**. Cardholder can have only one related card(restriction from business rules).
+Storing all information about user and card in one table can lead to bad desing.
+ 
+***Why: We need to follow the rule of one, when table should describe only one entity and each row should be about one entity***
+
+A one-to-one relationship between two tables can be established via a **UNIQUE** foreign key constraint.
+
+cardholder
+| name    | surname  | password     | card_id |
+| ------- | -------- | ------------ | ------- |
+| Stephen | Spilberg | great_pass43 | 111     |
+
+card
+| id  | issue_date | fee_rate |
+| --- | ---------- | -------- |
+| 111 | 2020-01-01 | 10       |
+
+
+
+### One to many (1:N)
+
+One Entity can have a relation ship with multipe other Entities
+
+**Ex:** On youtube one person can create many comments, but one specific comment can be linked to one specific person
+
+person
+| name   | person_id |
+| ------ | --------- |
+| Bohdan | 1         |
+
+comments
+| text            | comment_id | person_id |
+| --------------- | ---------- | --------- |
+| awesome         | 1          | 1         |
+| greate          | 2          | 1         |
+| too much for me | 2          | 1         |
+
+### Many to many (M:N)
+
+Multipe Entities can have a relation ship with multipe other Entities
+
+**Ex:** Polyamorous Marriage. Many husbands can be married to many wifes
+
+#### Designing many to many
+
+We have classes and students.
+We need to split it to 1:M and M:1 (for two one to many relation) and add intermidiary table
+
+**class ==> student_class <== student (1 : M | M : 1)**
+
+class
+| id  | subject   |
+| --- | --------- |
+| c5  | math      |
+| c6  | phisics   |
+| c7  | chemestry |
+
+student
+| name    | surname  | id  |
+| ------- | -------- | --- |
+| Stephen | Spilberg | s1  |
+| Roman   | Moshak   | s2  |
+| Anthony | Pollin   | s3  |
+
+student_class
+| id    | student_id | class_id |
+| ----- | ---------- | -------- |
+| sc11  | s1         | c5       |
+| sc23  | s2         | c5       |
+| sc64  | s3         | c5       |
+| sc21  | s2         | c7       |
+| sc88  | s3         | c7       |
+| sc914 | s1         | c6       |
+
+
+### Parent and child relationship
+
+Parent have a PK(Primary key) <== Child have a FK(Foreign key)
+
+Children inherit value from a parent, such as FK = 47, that tells us that his Parent is entry with Id = 47.
+Foreign key always points back to Primary key. Child table FK(user_id) points to Parent table PK(user_id).
+
+## Introduction to Keys
