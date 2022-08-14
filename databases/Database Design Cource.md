@@ -372,3 +372,41 @@ Children inherit value from a parent, such as FK = 47, that tells us that his Pa
 Foreign key always points back to Primary key. Child table FK(user_id) points to Parent table PK(user_id).
 
 ## Introduction to Keys
+
+Properties of Keys:  
+- Unique
+- Never NULL
+- Never changing
+
+Benefits of DB Keys:
+- Integrity (protect from duplication and old values)
+- Unique ()
+- Improves functionality of DB (speed of requests)
+- Less work (we don't need to change data in many places, only in one)
+- Allows for adding more complexity
+
+Type of Keys:
+- superkey (SK)
+- candidate key (CK)
+
+superkey - any number of colemns that forces every row to be unique, they have no practical usage and used only for designing DB. Defines:
+- can each row be unique?
+- can every row be unique?
+
+candidate - combinations of columns that can be a key (first_name_middle_name_last_name)
+Defines:
+- how many CK do i have?
+- how many columns are unique?
+
+### Primary and Alternate keys
+PRIMARY KEY - uniquely identifies each record in the table
+ALTERNATE KEY - the keys that contain all the properties needed to become a Candidate Key 
+
+Some important points about Alternate Keys are as follows :
+- A Primary Key can’t be an Alternate Key. For a table with a single Candidate Key which has to be the Primary Key will not contain any Alternate Key.
+- A Foreign Key can’t be an Alternate Key as it is only used to reference another table.
+- The alternate Key should be unique.
+- An Alternate Key can be a set of a single attribute or multiple attributes.
+- It can be NULL as well.
+
+### Surrogate and Natural keys
