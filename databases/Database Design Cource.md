@@ -410,3 +410,44 @@ Some important points about Alternate Keys are as follows :
 - It can be NULL as well.
 
 ### Surrogate and Natural keys
+
+Surrogate and Natural key is categories of Primary keys. It's more for DB design, for know different types of keys
+
+Natural key - some key that you would naturally store. 
+**Ex:** Users table will naturally store username 
+
+Natural is something that already in DB, when surrogate - is something that we just add.
+
+**Ex of surrogate key:** We have tables like users, sales etc. surrogate keys will be user_id, sales_id etc
+
+Surrogate key is private to DB, because of that we don't try to show them anywhere and the can be used only by DB admin. Also they're autoincremented (AI) everytime with big numbers or uuid.
+
+#### PROS and CONS
+
+Natural PROS
+- you don't  need to defind any new data, natural keys already there
+- keep your DB more minimalize 
+
+Natural CONS
+- sometimes it's hard to define natural keys (look Properties of KEYS above)
+- natural key have real world connection, so it might happen that something will change in realworld value, and because of that it can break NOT CHANGING key rule
+
+Surrogate PROS
+- numbers that we set for surrogate key are easy to works with
+
+Surrogate CONS
+- you have to add new column to your table which can require to store more data 
+
+
+### Foreign key
+
+**Ex:** We have a class table
+
+class
+| class_id | instructor_id | building_id | name    |
+| -------- | ------------- | ----------- | ------- |
+| 7        | 45            | 14          | math    |
+| 5        | 38            | 11          | phisics |
+
+In the table we have class_id, which is   for the table.
+When instructor_id and building_id are **Foreign key**, which point out to other table and form a relation
