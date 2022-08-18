@@ -451,3 +451,35 @@ class
 
 In the table we have class_id, which is   for the table.
 When instructor_id and building_id are **Foreign key**, which point out to other table and form a relation
+
+#### NOT NULL Foreign key
+
+NOT NULL - it's a  constraint that specify that each row in column should have some value, in case of keys it determinate that each of relation required
+
+**Ex:** We have a user and cars. User can have some ralation with cars in our table, but he can also not have any car, in other option ha can change one car to another, it will update Foreign key
+
+### Foreign key CONSTRAINTS
+
+Refers to the parent:
+- ON DELETE - when we delete the parent, we want children to do smth
+- ON UPDATE - when we update the parent, we want children to do smth
+
+Refers what happend to the child:
+- RESTRICT (NO ACTION)  - cannot delete or update before not change child
+- CASCADE - delete or update value after parent changes
+- SET NULL - will set value on null
+
+
+### Simple key, Composite key, Compound key
+
+These terms more for desing purposes
+
+Simple key - compose from one column (surrogate key or natural) (user_id, username)
+Composite key - compose from 2+ columns (natural key) (first_name + last_name + email)
+Compound key - compose from 2+ columns from different tables (in intermidiatery table)
+
+**Ex (compound key):**
+
+- Student table (student_id)
+- Class table (class_id)
+- Student classes table (student_id_class_id)
